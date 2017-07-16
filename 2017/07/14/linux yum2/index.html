@@ -1,0 +1,697 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="linux yum," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="转自http://songzj.iteye.com/blog/19207731&amp;gt; 使用yum install 安装包. 要安装一个包,使用 ‘yum install 包名’. 该命令将会自动的安装该包的依赖.Shell代码 12345678910111213141516# yum install postgresql.x86_64  Resolving Dependencies  Insta">
+<meta name="keywords" content="linux yum">
+<meta property="og:type" content="article">
+<meta property="og:title" content="yum使用实例">
+<meta property="og:url" content="http://yoursite.com/2017/07/14/linux yum2/index.html">
+<meta property="og:site_name" content="&lt;font size=&quot;6&quot;&gt;瑶栗子&lt;&#x2F;font&gt;">
+<meta property="og:description" content="转自http://songzj.iteye.com/blog/19207731&amp;gt; 使用yum install 安装包. 要安装一个包,使用 ‘yum install 包名’. 该命令将会自动的安装该包的依赖.Shell代码 12345678910111213141516# yum install postgresql.x86_64  Resolving Dependencies  Insta">
+<meta property="og:updated_time" content="2017-07-14T13:07:36.686Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="yum使用实例">
+<meta name="twitter:description" content="转自http://songzj.iteye.com/blog/19207731&amp;gt; 使用yum install 安装包. 要安装一个包,使用 ‘yum install 包名’. 该命令将会自动的安装该包的依赖.Shell代码 12345678910111213141516# yum install postgresql.x86_64  Resolving Dependencies  Insta">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/14/linux yum2/"/>
+
+
+
+
+
+  <title>yum使用实例 | <font size="6">瑶栗子</font></title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title"><font size="6">瑶栗子</font></span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"><font color="#fff">公无渡河，公竟渡河</font></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/14/linux yum2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mandara yao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="<font size="6">瑶栗子</font>">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">yum使用实例</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T18:39:29+08:00">
+                2017-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>转自<a href="http://songzj.iteye.com/blog/1920773" target="_blank" rel="external">http://songzj.iteye.com/blog/1920773</a><br>1&gt; 使用yum install 安装包.</p>
+<p>要安装一个包,使用 ‘yum install 包名’. 该命令将会自动的安装该包的依赖.<br>Shell代码<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"># yum install postgresql.x86_64  </div><div class="line">Resolving Dependencies  </div><div class="line">Install       2 Package(s)  </div><div class="line">Is this ok [y/N]: y  </div><div class="line"></div><div class="line">Package(s) data still to download: 3.0 M  </div><div class="line">(1/2): postgresql-9.0.4-5.fc15.x86_64.rpm          | 2.8 MB     00:11  </div><div class="line">(2/2): postgresql-libs-9.0.4-5.fc15.x86_64.rpm    | 203 kB     00:00  </div><div class="line">------------------------------------------------------------------  </div><div class="line">Total                                        241 kB/s | 3.0 MB     00:12       </div><div class="line"></div><div class="line">Running Transaction  </div><div class="line">  Installing : postgresql-libs-9.0.4-5.fc15.x86_64             1/2  </div><div class="line">  Installing : postgresql-9.0.4-5.fc15.x86_64                   2/2   </div><div class="line"></div><div class="line">Complete!</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>默认的’yum install’命令, 将会在安装这些包之前 提示你”接受”或”放弃”, 如果想要使用yum自动安装包,而不对你进行提示. 使用 -y 选项. 如下所示:<br>Shell代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># yum -y install postgresql.x86_64</div></pre></td></tr></table></figure></p>
+<p>2&gt; 使用yum remove 卸载包.</p>
+<p>  如下所示:使用’yum remove 包名’ 命令卸载包.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># yum remove  postgresql.x86_64  </div><div class="line">Resolving Dependencies  </div><div class="line">---&gt; Package postgresql.x86_64 0:9.0.4-5.fc15 will be erased  </div><div class="line"></div><div class="line">Is this ok [y/N]: y  </div><div class="line"></div><div class="line">Running Transaction  </div><div class="line">  Erasing    : postgresql-9.0.4-5.fc15.x86_64       1/1   </div><div class="line"></div><div class="line">Removed:  </div><div class="line">  postgresql.x86_64 0:9.0.4-5.fc15  </div><div class="line"></div><div class="line">Complete!</div></pre></td></tr></table></figure></p>
+<p>3&gt; 使用 ‘yum update’命令升级已存在的包.</p>
+<p>如果你的系统中存在一个旧版本的包, 使用’yum update 包名’ 可以使它升级到最新版本. 当然,这个命令也会自动的找出并安装该报的所有必须的依赖.<br>Shell代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># yum update postgresql.x86_64</div></pre></td></tr></table></figure></p>
+<p>4&gt; 使用’yum search’命令查找包.</p>
+<p>如果你不知道你想要安装的包的准确包名, 可以使用’yum search 关键字’, 他将会搜索并列出匹配你的’关键字’的所有记录.</p>
+<p>下面的实例是在yum的资源库中搜索所有匹配关键字’firefox’的包, 并且将其罗列出来.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># yum search firefox  </div><div class="line">Loaded plugins: langpacks, presto, refresh-packagekit  </div><div class="line">============== N/S Matched: firefox ======================  </div><div class="line">firefox.x86_64 : Mozilla Firefox Web browser  </div><div class="line">gnome-do-plugins-firefox.x86_64 : gnome-do-plugins for firefox  </div><div class="line">mozilla-firetray-firefox.x86_64 : System tray extension for firefox  </div><div class="line">mozilla-adblockplus.noarch : Adblocking extension for Mozilla Firefox  </div><div class="line">mozilla-noscript.noarch : JavaScript white list extension for Mozilla Firefox  </div><div class="line"></div><div class="line">Name and summary matches only, use &quot;search all&quot; for everything.</div></pre></td></tr></table></figure></p>
+<p>5&gt; 使用’yum info’ 查看包的额外信息.<br>一旦你使用yum search搜索到了一个包, 你就可以使用’yum info 包名’ 来查看该包的额外信息.<br>下面的例子展示了 ‘samba-common’包的额外信息.<br>Shell代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"># yum info samba-common.i686  </div><div class="line">Loaded plugins: langpacks, presto, refresh-packagekit  </div><div class="line">Available Packages  </div><div class="line">Name        : samba-common  </div><div class="line">Arch        : i686  </div><div class="line">Epoch       : 1  </div><div class="line">Version     : 3.5.11  </div><div class="line">Release     : 71.fc15.1  </div><div class="line">Size        : 9.9 M  </div><div class="line">Repo        : updates  </div><div class="line">Summary     : Files used by both Samba servers and clients  </div><div class="line">URL         : http://www.samba.org/  </div><div class="line">License     : GPLv3+ and LGPLv3+  </div><div class="line">Description : Samba-common provides files necessary for both the server and client  </div><div class="line">            : packages of Samba.</div></pre></td></tr></table></figure></p>
+<p>6&gt; 使用yum list 查看所有可见包.<br> 下面的命令将会列出yum 数据库中所有的可见包.<br> Shell代码<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># yum list | less</div></pre></td></tr></table></figure></p>
+<p> 7&gt; 使用 yum list installed 查看你自己系统中已经安装的包.<br> Shell代码<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># yum list installed | less</div></pre></td></tr></table></figure></p>
+<p> 8&gt;  使用’yum provides 文件名’ 可以查看该文件属于哪个包.<br> 如果你想知道某个文件属于哪个包, 使用’yum provides’. 例如, 如想要知道 /etc/sysconfig/nfs 文见属于哪个包.可以使用如下命令.<br> Shell代码<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"> # yum provides /etc/sysconfig/nfs  </div><div class="line">Loaded plugins: langpacks, presto, refresh-packagekit  </div><div class="line">1:nfs-utils-1.2.3-10.fc15.x86_64 : NFS utilities and supporting clients and  </div><div class="line">                                 : daemons for the kernel NFS server  </div><div class="line">Repo        : fedora  </div><div class="line">Matched from:  </div><div class="line">Filename    : /etc/sysconfig/nfs  </div><div class="line"></div><div class="line">1:nfs-utils-1.2.4-1.fc15.x86_64 : NFS utilities and supporting clients and  </div><div class="line">                                : daemons for the kernel NFS server  </div><div class="line">Repo        : updates  </div><div class="line">Matched from:  </div><div class="line">Filename    : /etc/sysconfig/nfs  </div><div class="line"></div><div class="line">1:nfs-utils-1.2.4-1.fc15.x86_64 : NFS utilities and supporting clients and  </div><div class="line">                                : daemons for the kernel NFS server  </div><div class="line">Repo        : installed  </div><div class="line">Matched from:  </div><div class="line">Other       : Provides-match: /etc/sysconfig/nfs</div></pre></td></tr></table></figure></p>
+<p>9&gt; 使用yum grouplist 查看可见的”软件集合”,</p>
+<p>在yum 中,在一个指定的软件集合中,一些有关系的包被归类在一起, 你可以简单滴安装整个”软件集合”来安装所有该集合下的所有包, 而不是一个个的搜索和安装每个独立的包.</p>
+<p>如下所示. 你可以执行”yum grouplist”来查看所有可见的”软件集合”, 列出的三个已安装”集合”有, 已安装语言, 可见”软件集合.”<br>Shell代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"># yum grouplist  </div><div class="line"></div><div class="line">Installed Groups:  </div><div class="line">   Administration Tools  </div><div class="line">   Base  </div><div class="line">   Design Suite  </div><div class="line">   ....  </div><div class="line"></div><div class="line">Installed Language Groups:  </div><div class="line">   Arabic Support [ar]  </div><div class="line">   Armenian Support [hy]  </div><div class="line">   Bengali Support [bn]  </div><div class="line">   ....  </div><div class="line"></div><div class="line">Available Groups:  </div><div class="line">   Authoring and Publishing  </div><div class="line">   Books and Guides  </div><div class="line">   Clustering  </div><div class="line">   DNS Name Server  </div><div class="line">   Development Libraries  </div><div class="line">   Development Tools  </div><div class="line">   Directory Server  </div><div class="line">   Dogtag Certificate System  </div><div class="line">   ...</div></pre></td></tr></table></figure></p>
+<p>10&gt; 使用”yum groupinstall” 安装指定的”软件集合”.<br>如下示例中使用了’yum groupinstall’ 功能来安装指定的软件集合 “DNS Name Server” 集合包含了bind 和bind-chroot.<br>Shell代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"># yum groupinstall &apos;DNS Name Server&apos;  </div><div class="line"></div><div class="line">Dependencies Resolved  </div><div class="line">Install       2 Package(s)  </div><div class="line">Is this ok [y/N]: y  </div><div class="line"></div><div class="line">Package(s) data still to download: 3.6 M  </div><div class="line">(1/2): bind-9.8.0-9.P4.fc15.x86_64.rpm             | 3.6 MB     00:15  </div><div class="line">(2/2): bind-chroot-9.8.0-9.P4.fc15.x86_64.rpm   |  69 kB     00:00  </div><div class="line">-----------------------------------------------------------------  </div><div class="line">Total               235 kB/s | 3.6 MB     00:15  </div><div class="line"></div><div class="line">Installed:  </div><div class="line">  bind-chroot.x86_64 32:9.8.0-9.P4.fc15  </div><div class="line"></div><div class="line">Dependency Installed:  </div><div class="line">  bind.x86_64 32:9.8.0-9.P4.fc15  </div><div class="line"></div><div class="line">Complete!</div></pre></td></tr></table></figure></p>
+<p>11&gt;使用”yum groupupdate” 升级已存在的软件集合.<br>如果你已经使用 yum groupinstall 安装用了一个”软件集合”,然后想要把它升级到最新的版本. 你可以使用如下命令.<br>Shell代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"># yum groupupdate &apos;Graphical Internet&apos;  </div><div class="line"></div><div class="line">Dependencies Resolved  </div><div class="line">Upgrade       5 Package(s)  </div><div class="line">Is this ok [y/N]: y     </div><div class="line"></div><div class="line">Running Transaction  </div><div class="line">  Updating   : evolution-data-server-3.0.2-1.fc15.x86_64     1/10  </div><div class="line">  Updating   : evolution-3.0.2-3.fc15.x86_64                 2/10  </div><div class="line">  Updating   : evolution-NetworkManager-3.0.2-3.fc15.x86_64  3/10  </div><div class="line">  Updating   : evolution-help-3.0.2-3.fc15.noarch            4/10  </div><div class="line">  Updating   : empathy-3.0.2-3.fc15.x86_64                   5/10  </div><div class="line">  Cleanup    : evolution-NetworkManager-3.0.1-1.fc15.x86_64  6/10  </div><div class="line">  Cleanup    : evolution-help-3.0.1-1.fc15.noarch            7/10  </div><div class="line">  Cleanup    : evolution-3.0.1-1.fc15.x86_64                 8/10  </div><div class="line">  Cleanup    : empathy-3.0.1-3.fc15.x86_64                   9/10  </div><div class="line">  Cleanup    : evolution-data-server-3.0.1-1.fc15.x86_64     10/10   </div><div class="line"></div><div class="line">Complete!</div></pre></td></tr></table></figure></p>
+<p>12: 使用”yum groupremove” 来卸载软件集合.<br>Shell代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># yum groupremove &apos;DNS Name Server&apos;  </div><div class="line">Dependencies Resolved  </div><div class="line">Remove        2 Package(s)  </div><div class="line">Is this ok [y/N]: y  </div><div class="line"></div><div class="line">Running Transaction  </div><div class="line">  Erasing    : 32:bind-chroot-9.8.0-9.P4.fc15.x86_64  1/2  </div><div class="line">  Erasing    : 32:bind-9.8.0-9.P4.fc15.x86_64            2/2   </div><div class="line"></div><div class="line">Complete!</div></pre></td></tr></table></figure></p>
+<p>13&gt;  使用”yum repolist”列出你当前的yum 资源库.</p>
+<p>所有的yum命令”依赖”这一个或者多个yum资源库. 执行’yum repolist’ 可以查看你系统中所有的yum资源库配置信息.<br>如下所列的只有可用的资源库.<br>Shell代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># yum repolist  </div><div class="line">repo id     repo name                        status  </div><div class="line">fedora      Fedora 15 - x86_64               24,085  </div><div class="line">updates     Fedora 15 - x86_64 - Updates     5,612</div></pre></td></tr></table></figure></p>
+<p>如果想要查看所有的包含”可用”和”不可用”资源库, 使用”yum repolist all”<br>Shell代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># yum repolist all  </div><div class="line">repo id                   repo name                                status  </div><div class="line">fedora                    Fedora 15 - x86_64                       enabled: 24,085  </div><div class="line">fedora-debuginfo          Fedora 15 - x86_64 - Debug               disabled  </div><div class="line">fedora-source             Fedora 15 - Source                       disabled  </div><div class="line">rawhide-debuginfo         Fedora - Rawhide - Debug                 disabled  </div><div class="line">rawhide-source            Fedora - Rawhide - Source                disabled  </div><div class="line">updates                   Fedora 15 - x86_64 - Updates             enabled:  5,612  </div><div class="line">updates-debuginfo         Fedora 15 - x86_64 - Updates - Debug     disabled  </div><div class="line">updates-source            Fedora 15 - Updates Source               disabled  </div><div class="line">updates-testing           Fedora 15 - x86_64 - Test Updates        disabled  </div><div class="line">updates-testing-debuginfo Fedora 15 - x86_64 - Test Updates Debug  disabled  </div><div class="line">updates-testing-source    Fedora 15 - Test Updates Source          disabled</div></pre></td></tr></table></figure></p>
+<p>14&gt; 从不可用的资源库安装, 可用使用”yum-enablerepo”<br>yum默认的会从可用的资源库中安装文件. 不过某些原因下,你必须从不可用的资源库安装它, 那么你可以使用<br>-enablerepo参数.如下所示.<br>Shell代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># yum --enablerepo=fedora-source install vim-X11.x86_64  </div><div class="line">Dependencies Resolved  </div><div class="line">Install       1 Package(s)  </div><div class="line">Is this ok [y/N]: y  </div><div class="line"></div><div class="line">Running Transaction  </div><div class="line">  Installing : 2:vim-X11-7.3.138-1.fc15.x86_64   1/1   </div><div class="line"></div><div class="line">Complete!</div></pre></td></tr></table></figure></p>
+<p>15&gt; 使用Yum Shell 的方式来执行yum命令.</p>
+<p>yum支持使用yum shell的方式来运行多个yum命令.<br>Java代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"># yum shell  </div><div class="line">Setting up Yum Shell  </div><div class="line">&gt; info samba.x86_64  </div><div class="line">Available Packages  </div><div class="line">Name        : samba  </div><div class="line">Arch        : x86_64  </div><div class="line">Epoch       : 1  </div><div class="line">Version     : 3.5.11  </div><div class="line">Release     : 71.fc15.1  </div><div class="line">Size        : 4.6 M  </div><div class="line">Repo        : updates  </div><div class="line">Summary     : Server and Client software to interoperate with Windows machines  </div><div class="line">URL         : http://www.samba.org/  </div><div class="line">License     : GPLv3+ and LGPLv3+  </div><div class="line">Description :  </div><div class="line">            : Samba is the suite of programs by which a lot of PC-related  </div><div class="line">            : machines share files, printers, and other information (such as  </div><div class="line">            : lists of available files and printers). The Windows NT, OS/2, and  </div><div class="line">            : Linux operating systems support this natively, and add-on packages  </div><div class="line">            : can enable the same thing for DOS, Windows, VMS, UNIX of all  </div><div class="line">            : kinds, MVS, and more. This package provides an SMB/CIFS server  </div><div class="line">            : that can be used to provide network services to SMB/CIFS clients.  </div><div class="line">            : Samba uses NetBIOS over TCP/IP (NetBT) protocols and does NOT  </div><div class="line">            : need the NetBEUI (Microsoft Raw NetBIOS frame) protocol.</div></pre></td></tr></table></figure></p>
+<p>当然, yum也可以从一个text文件中读取命令,然后一行行的执行, 对于你有多个系统的时候是非常有用的.<br>创建一个包含这些命令的text文件,然后使用 ‘yum shell’来执行这些命令, 而不必再每个系统上执行一样的命令.<br>Java代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"># cat yum_cmd.txt  </div><div class="line">repolist  </div><div class="line">info nfs-utils-lib.x86_64  </div><div class="line"></div><div class="line"># yum shell yum_cmd.txt   </div><div class="line">repo id     repo name                        status  </div><div class="line">fedora      Fedora 15 - x86_64               24,085  </div><div class="line">updates     Fedora 15 - x86_64 - Updates     5,612  </div><div class="line"></div><div class="line">Available Packages  </div><div class="line">Name        : nfs-utils-lib  </div><div class="line">Arch        : x86_64  </div><div class="line">Version     : 1.1.5  </div><div class="line">Release     : 5.fc15  </div><div class="line">Size        : 61 k  </div><div class="line">Repo        : fedora  </div><div class="line">Summary     : Network File System Support Library  </div><div class="line">URL         : http://www.citi.umich.edu/projects/nfsv4/linux/  </div><div class="line">License     : BSD  </div><div class="line">Description : Support libraries that are needed by the commands and  </div><div class="line">            : daemons the nfs-utils rpm.  </div><div class="line"></div><div class="line">Leaving Shell</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux-yum/" rel="tag"># linux yum</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/13/linux yum/" rel="next" title="yum的解释及常用命令">
+                <i class="fa fa-chevron-left"></i> yum的解释及常用命令
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/14/linux/" rel="prev" title="linux命令——cat">
+                linux命令——cat <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Mandara yao" />
+          <p class="site-author-name" itemprop="name">Mandara yao</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mandara yao</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
