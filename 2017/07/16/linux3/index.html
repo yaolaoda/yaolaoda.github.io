@@ -100,10 +100,16 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/16/linux3/index.html">
 <meta property="og:site_name" content="&lt;font size=&quot;6&quot;&gt;瑶栗子&lt;&#x2F;font&gt;">
 <meta property="og:description" content="mv命令用来对文件或目录重新命名，或者将文件从一个目录移到另一个目录中。mv命令可以用来将源文件移至一个目标文件中，或将一组文件移至一个目标目录中。源文件被移至目标文件有两种不同的结果：1.如果目标文件是到某一目录文件的路径，源文件会被移到此目录下，且文件名不变。2.如果目标文件不是目录文件，则源文件名（只能有一个）会变为此目标文件名，并覆盖己存在的同名文件。如果源文件和目标文件在同一个目录下，m">
-<meta property="og:updated_time" content="2017-07-16T04:22:42.191Z">
+<meta property="og:image" content="http://yoursite.com/2017/07/16/linux3/1.png">
+<meta property="og:image" content="http://yoursite.com/2017/07/16/linux3/2.png">
+<meta property="og:image" content="http://yoursite.com/2017/07/16/linux3/3.png">
+<meta property="og:image" content="http://yoursite.com/2017/07/16/linux3/4.png">
+<meta property="og:image" content="http://yoursite.com/2017/07/16/linux3/5.png">
+<meta property="og:updated_time" content="2017-07-17T09:04:09.436Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux命令——mv">
 <meta name="twitter:description" content="mv命令用来对文件或目录重新命名，或者将文件从一个目录移到另一个目录中。mv命令可以用来将源文件移至一个目标文件中，或将一组文件移至一个目标目录中。源文件被移至目标文件有两种不同的结果：1.如果目标文件是到某一目录文件的路径，源文件会被移到此目录下，且文件名不变。2.如果目标文件不是目录文件，则源文件名（只能有一个）会变为此目标文件名，并覆盖己存在的同名文件。如果源文件和目标文件在同一个目录下，m">
+<meta name="twitter:image" content="http://yoursite.com/2017/07/16/linux3/1.png">
 
 
 
@@ -341,7 +347,15 @@
 
       
         <p>mv命令用来对文件或目录重新命名，或者将文件从一个目录移到另一个目录中。<br>mv命令可以用来将源文件移至一个目标文件中，或将一组文件移至一个目标目录中。源文件被移至目标文件有两种不同的结果：<br>1.如果目标文件是到某一目录文件的路径，源文件会被移到此目录下，且文件名不变。<br>2.如果目标文件不是目录文件，则源文件名（只能有一个）会变为此目标文件名，并覆盖己存在的同名文件。如果源文件和目标文件在同一个目录下，mv的作用就是改文件名。当目标文件是目录文件时，源文件或目录参数可以有多个，则所有的源文件都会被移至目标文件中。所有移到该目录下的文件都将保留以前的文件名。 注意事项：mv与cp的结果不同，mv好像文件“搬家”，文件个数并未增加。而cp对文件进行复制，文件个数增加了。</p>
-<p>来自: <a href="http://man.linuxde.net/mv" target="_blank" rel="external">http://man.linuxde.net/mv</a><a id="more"></a><br>mv命令参数：<br>-b ：若需覆盖文件，则覆盖前先行备份。<br>-f ：force 强制的意思，如果目标文件已经存在，不会询问而直接覆盖；<br>-i ：若目标文件 (destination) 已经存在时，就会询问是否覆盖！<br>-u ：若目标文件已经存在，且 source 比较新，才会更新(update)<br>    -t  ： –target-directory=DIRECTORY move all SOURCE arguments into DIRECTORY，即指定mv的目标目录，该选项适用于移动多个源文件到一个目录的情况，此时目标目录在前，源文件在后。</p>
+<p>来自: <a href="http://man.linuxde.net/mv" target="_blank" rel="external">http://man.linuxde.net/mv</a><a id="more"></a><br>s<br>mv命令参数：<br>-b ：若需覆盖文件，则覆盖前先行备份。<br>-f ：force 强制的意思，如果目标文件已经存在，不会询问而直接覆盖；<br>-i ：若目标文件 (destination) 已经存在时，就会询问是否覆盖！<br>-u ：若目标文件已经存在，且 source 比较新，才会更新(update)<br>-t  ： –target-directory=DIRECTORY move all SOURCE arguments into DIRECTORY，即指定mv的目标目录，该选项适用于移动多个源文件到一个目录的情况，此时目标目录在前，源文件在后。</p>
+<h3 id="实例一：移动文件"><a href="#实例一：移动文件" class="headerlink" title="实例一：移动文件"></a>实例一：移动文件</h3><p>移动文件时需要注意的是文件的源地址和目标地址必须不同。这里有个例子，想要将file_1.txt文件从当前目录移动到其它目录<br><img src="/2017/07/16/linux3/1.png" alt="linux1"></p>
+<h3 id="实例二：移动多个文件"><a href="#实例二：移动多个文件" class="headerlink" title="实例二：移动多个文件"></a>实例二：移动多个文件</h3><p>如果想一次移动多个文件，我们可以将他们放在一行并用空格分开。<br><img src="/2017/07/16/linux3/2.png" alt="linux1"><br>如果你的文件有规律可循的话那么你就可以使用通配符。比如，为了移除所有以.txt为扩展名的文件，我们可以用下面的命令：<br><img src="/2017/07/16/linux3/3.png" alt="linux1"></p>
+<h3 id="实例三：重命名文件或目录"><a href="#实例三：重命名文件或目录" class="headerlink" title="实例三：重命名文件或目录"></a>实例三：重命名文件或目录</h3><p>我们也用 mv 命令来重命名文件或目录。不过目标位置和源位置必须相同才可以。然后文件名必须不同。<br><img src="/2017/07/16/linux3/4.png" alt="linux1"></p>
+<h3 id="实例四：打印移动信息"><a href="#实例四：打印移动信息" class="headerlink" title="实例四：打印移动信息"></a>实例四：打印移动信息</h3><p>当你移动或重命名一大堆文件或目录时，你可能会想在不去目标位置去查看的情况下知道你自己的命令是否成功地执行了。这就要用到-v选项了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mv -v *.txt /home/yaodage/Documents</div></pre></td></tr></table></figure></p>
+<h3 id="实例五：使用交互模式"><a href="#实例五：使用交互模式" class="headerlink" title="实例五：使用交互模式"></a>实例五：使用交互模式</h3><p>当你将文件移动到其它位置，而那个位置恰好有同样的文件，这时 mv 命令会覆盖掉原来的文件。对于mv的这一行为一般不会有什么提示。如果想产生一个关于覆盖文件的提示，我们可以使用-i选项。（译注：通常发行版会通过alias命令，将-i作为默认选项，所以会有提示。）<br><img src="/2017/07/16/linux3/5.png" alt="linux1"></p>
+<h3 id="实例六：使用更新选项"><a href="#实例六：使用更新选项" class="headerlink" title="实例六：使用更新选项"></a>实例六：使用更新选项</h3><p>－i 选项会提示我们关于覆盖文件的提示，而 －u 则只在源文件比目标文件新时才执行更新。<br>假如 file1.txt 和 file2.txt有如下特点：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">File_1.txt has 84 bytes file size and it last modified time is 12:00</div><div class="line">File_2.txt has 0 bytes file size and it last modified time is 11:59</div></pre></td></tr></table></figure></p>
+<p>我们想将它们移动到 /home/pungki/office 目录下。但是目标地址*已经有file1.txt和file2.txt了。<br>我们用下面的命令将file1.txt 和file2.txt从当前目录移动到/home/pungki/office<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mv -uv *.txt /home/pungki/office</div></pre></td></tr></table></figure></p>
+<p>可以看到这些文件被移动了。能移动这些文件是因为它们最近的修改时间戳比 /home/pungki/office 目录中的文件新。</p>
 
       
     </div>
@@ -439,8 +453,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -493,6 +516,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#实例一：移动文件"><span class="nav-number">1.</span> <span class="nav-text">实例一：移动文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例二：移动多个文件"><span class="nav-number">2.</span> <span class="nav-text">实例二：移动多个文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例三：重命名文件或目录"><span class="nav-number">3.</span> <span class="nav-text">实例三：重命名文件或目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例四：打印移动信息"><span class="nav-number">4.</span> <span class="nav-text">实例四：打印移动信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例五：使用交互模式"><span class="nav-number">5.</span> <span class="nav-text">实例五：使用交互模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例六：使用更新选项"><span class="nav-number">6.</span> <span class="nav-text">实例六：使用更新选项</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
