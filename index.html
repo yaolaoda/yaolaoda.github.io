@@ -273,6 +273,237 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/17/linux6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mandara yao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="<font size="6">瑶栗子</font>">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/17/linux6/" itemprop="url">linux命令——touch</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-17T17:56:47+08:00">
+                2017-07-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>linux的touch命令不常用，一般在使用make的时候可能会用到，用来修改文件时间戳，或者新建一个不存在的文件。<br>命令参数：<br>　　-a 或–time=atime或–time=access或–time=use 　只更改存取时间。<br>　　-c 或–no-create 　不建立任何文档。<br>　　-d 　使用指定的日期时间，而非现在的时间。<br>　　-f 　此参数将忽略不予处理，仅负责解决BSD版本touch指令的兼容性问题。<br>　　-m 或–time=mtime或–time=modify 　只更改变动时间。<br>　　-r 　把指定文档或目录的日期时间，统统设成和参考文档或目录的日期时间相同。<br>　　-t 　使用指定的日期时间，而非现在的时间。</p>
+<h3 id="实例一：更新f2-txt的时间和f3-txt时间戳相同"><a href="#实例一：更新f2-txt的时间和f3-txt时间戳相同" class="headerlink" title="实例一：更新f2.txt的时间和f3.txt时间戳相同"></a>实例一：更新f2.txt的时间和f3.txt时间戳相同</h3><p><img src="/2017/07/17/linux6/1.png" alt="linux1"></p>
+<h3 id="实例二：设定文件的时间戳"><a href="#实例二：设定文件的时间戳" class="headerlink" title="实例二：设定文件的时间戳"></a>实例二：设定文件的时间戳</h3><p><img src="/2017/07/17/linux6/2.png" alt="linux1"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/17/linux5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mandara yao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="<font size="6">瑶栗子</font>">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/17/linux5/" itemprop="url">linux命令——cp</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-17T17:41:58+08:00">
+                2017-07-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>功能: 复制文件或目录<br>说明: cp指令用于复制文件或目录，如同时指定两个以上的文件或目录，且最后的目的地是一个已经存在的目录，则它会把前面指定的所有文件或目录复制到此目录中。若同时指定多个文件或目录，而最后的目的地并非一个已存在的目录，则会出现错误信息<br>cp命令参数：<br>-a：此参数的效果和同时指定”-dpR”参数相同；<br> -d：当复制符号连接时，把目标文件或目录也建立为符号连接，并指向与源文件或目录连接的原始文件或目录；<br>-f：强行复制文件或目录，不论目标文件或目录是否已存在；<br>-i：覆盖既有文件之前先询问用户；<br>-l：对源文件建立硬连接，而非复制文件；<br>-p：保留源文件或目录的属性；<br>-R/r：递归处理，将指定目录下的所有文件与子目录一并处理；<br>-s：对源文件建立符号连接，而非复制文件；<br>-u：使用这项参数后只会在源文件的更改时间较目标文件更新时或是名称相互对应的目标文件并不存在时，才复制文件；<br> -S：在备份文件时，用指定的后缀“SUFFIX”代替文件的默认后缀；<br>-b：覆盖已存在的文件目标前将目标文件备份；<br>-v：详细显示命令执行的操作。</p>
+<p>来自: <a href="http://man.linuxde.net/cp" target="_blank" rel="external">http://man.linuxde.net/cp</a></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/17/linux5/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/17/linux4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -292,7 +523,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/17/linux4/" itemprop="url">linux4</a></h1>
+                <a class="post-title-link" href="/2017/07/17/linux4/" itemprop="url">linux命令——rm</a></h1>
         
 
         <div class="post-meta">
@@ -341,7 +572,55 @@
       
         
           
-            
+            <p>该命令的功能为删除一个目录中的一个或多个文件或目录，它也可以将某个目录及其下的所有文件及子目录均删除。对于链接文件，只是断开了链接，原文件保持不变。<br>rm命令参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>长参数</th>
+<th>描叙</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-f</td>
+<td>–force</td>
+<td>强制删除，忽略不存在的文件，从不给出提示。</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>–interactive</td>
+<td>交互模式删除文件，删除文件前给出提示。</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>–recursive</td>
+<td>递归的删除目录下面文件以及子目录下文件。</td>
+</tr>
+<tr>
+<td>-R</td>
+<td>–recursive</td>
+<td>递归的删除目录下面文件以及子目录下文件。</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>–verbose</td>
+<td>显示运行时详细信息</td>
+</tr>
+<tr>
+<td></td>
+<td>–help</td>
+<td>显示命令在线帮助</td>
+</tr>
+<tr>
+<td></td>
+<td>–version</td>
+<td>显示命令版本信息</td>
+</tr>
+</tbody>
+</table>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>交互式删除当前目录下的文件hello和EOF<br><img src="/2017/07/17/linux4/1.png" alt="linux1"></p>
+
           
         
       
@@ -1241,7 +1520,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

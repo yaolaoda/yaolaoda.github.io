@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="linux," />
 
 
 
@@ -93,13 +93,19 @@
 
 
 
+<meta name="description" content="该命令的功能为删除一个目录中的一个或多个文件或目录，它也可以将某个目录及其下的所有文件及子目录均删除。对于链接文件，只是断开了链接，原文件保持不变。rm命令参数：    参数 长参数 描叙     -f –force 强制删除，忽略不存在的文件，从不给出提示。   -i –interactive 交互模式删除文件，删除文件前给出提示。   -r –recursive 递归的删除目录下面文件以及子目">
+<meta name="keywords" content="linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux4">
+<meta property="og:title" content="linux命令——rm">
 <meta property="og:url" content="http://yoursite.com/2017/07/17/linux4/index.html">
 <meta property="og:site_name" content="&lt;font size=&quot;6&quot;&gt;瑶栗子&lt;&#x2F;font&gt;">
-<meta property="og:updated_time" content="2017-07-17T09:12:10.784Z">
+<meta property="og:description" content="该命令的功能为删除一个目录中的一个或多个文件或目录，它也可以将某个目录及其下的所有文件及子目录均删除。对于链接文件，只是断开了链接，原文件保持不变。rm命令参数：    参数 长参数 描叙     -f –force 强制删除，忽略不存在的文件，从不给出提示。   -i –interactive 交互模式删除文件，删除文件前给出提示。   -r –recursive 递归的删除目录下面文件以及子目">
+<meta property="og:image" content="http://yoursite.com/2017/07/17/linux4/1.png">
+<meta property="og:updated_time" content="2017-07-17T09:40:49.093Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux4">
+<meta name="twitter:title" content="linux命令——rm">
+<meta name="twitter:description" content="该命令的功能为删除一个目录中的一个或多个文件或目录，它也可以将某个目录及其下的所有文件及子目录均删除。对于链接文件，只是断开了链接，原文件保持不变。rm命令参数：    参数 长参数 描叙     -f –force 强制删除，忽略不存在的文件，从不给出提示。   -i –interactive 交互模式删除文件，删除文件前给出提示。   -r –recursive 递归的删除目录下面文件以及子目">
+<meta name="twitter:image" content="http://yoursite.com/2017/07/17/linux4/1.png">
 
 
 
@@ -133,7 +139,7 @@
 
 
 
-  <title>linux4 | <font size="6">瑶栗子</font></title>
+  <title>linux命令——rm | <font size="6">瑶栗子</font></title>
   
 
 
@@ -289,7 +295,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">linux4</h1>
+          <h1 class="post-title" itemprop="name headline">linux命令——rm</h1>
         
 
         <div class="post-meta">
@@ -336,7 +342,55 @@
       
 
       
-        
+        <p>该命令的功能为删除一个目录中的一个或多个文件或目录，它也可以将某个目录及其下的所有文件及子目录均删除。对于链接文件，只是断开了链接，原文件保持不变。<br>rm命令参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>长参数</th>
+<th>描叙</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-f</td>
+<td>–force</td>
+<td>强制删除，忽略不存在的文件，从不给出提示。</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>–interactive</td>
+<td>交互模式删除文件，删除文件前给出提示。</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>–recursive</td>
+<td>递归的删除目录下面文件以及子目录下文件。</td>
+</tr>
+<tr>
+<td>-R</td>
+<td>–recursive</td>
+<td>递归的删除目录下面文件以及子目录下文件。</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>–verbose</td>
+<td>显示运行时详细信息</td>
+</tr>
+<tr>
+<td></td>
+<td>–help</td>
+<td>显示命令在线帮助</td>
+</tr>
+<tr>
+<td></td>
+<td>–version</td>
+<td>显示命令版本信息</td>
+</tr>
+</tbody>
+</table>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>交互式删除当前目录下的文件hello和EOF<br><img src="/2017/07/17/linux4/1.png" alt="linux1"></p>
+
       
     </div>
 
@@ -363,6 +417,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+        </div>
+      
 
       
       
@@ -381,6 +441,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/17/linux5/" rel="prev" title="linux命令——cp">
+                linux命令——cp <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -427,8 +491,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -443,7 +516,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -481,6 +554,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#实例"><span class="nav-number">1.</span> <span class="nav-text">实例</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
